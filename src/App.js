@@ -1,5 +1,5 @@
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 // Functional components
 // This is specifically an arrow function component
@@ -10,7 +10,13 @@ import {useState} from 'react';
 const App = () => {
   // naming hooks: [name, setting function], useState(initial state)
   const [counter, setCounter] = useState(0); // Calling a function in react that starts with "use" is called a hook
+  // NEVER mutate the state manually (i.e. DO NOT write counter = 100;)
 
+  useEffect(() => {
+    // alert('Reload')
+    // setCounter(100);
+    alert("You've changed the counter to "+ counter);
+  }, [counter]) //If the dependency array [] is empty, the code in useEffect only happens at the initial loading of the component
 
   return (
     <div className="App">
