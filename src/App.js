@@ -1,35 +1,24 @@
 import './App.css';
+import {useState} from 'react';
 
 // Functional components
 // This is specifically an arrow function component
-const Person = (props) => {
-  return(
-    <>
-      <h1>Name: {props.name}</h1>
-      <h2>Last Name: {props.lastName}</h2>
-      <h2>Age: {props.age}</h2>
-    </>
-  )
-}
 
-// Props - allow passing dynamic data through react components
-// passed via attributes (basically properties)
+// State - plain js object used by react to represent a piece of info about
+// the component's current situation
+
 const App = () => {
+  // naming hooks: [name, setting function], useState(initial state)
+  const [counter, setCounter] = useState(0); // Calling a function in react that starts with "use" is called a hook
+
+
   return (
     <div className="App">
-      {/* All the code from Person just got imported straight into App! */}
-      <Person
-        name={'John'}
-        lastName={'Doe'}
-        age={25}
-      />
-      <Person
-        name='Jane'
-        lastName='Lin'
-        age={2+2}
-      />
-
-      <h1>Hello!</h1>
+      {/* Adding events to the buttons */}
+      {/* <button onClick={() => alert('clicked')}>-</button> */}
+      <button onClick={() => setCounter((prevCount) => prevCount +1)}>+</button>   
+      <h1>{counter}</h1>
+      <button onClick={() => setCounter((prevCount) => prevCount -1)}>-</button>
     </div>
   );
 }
