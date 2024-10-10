@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// ReactDOM (document object model) is only called once in the entire code
+// used to render components and the entire application into the real DOM (div with id 'root')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
